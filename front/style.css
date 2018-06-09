@@ -1,0 +1,36 @@
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10vh;
+	padding-bottom: 30vh;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+.line {
+	display: flex;
+	justify-content: space-between;
+}
+
+.input {
+	width: 15vw;
+}
+
+.first-line {
+	width: 40vw;
+}
+
+.buttons {
+	width: 35vw;
+}
+
+.input-section {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
