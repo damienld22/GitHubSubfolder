@@ -21,7 +21,7 @@ There are 3 properties :
 
 ### From browser
 
-`http://localhost:8080?owner=zetapush&repository=zetapush-tutorials&path=avengersChat`
+Go to **https://damienld22.github.io/GitHubSubfolder/**
 
 ## From _curl_
 
