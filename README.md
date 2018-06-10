@@ -9,6 +9,10 @@ This repository do the same stuff, but the generation of the file is on the back
 
 ## How to use it ?
 
+First you need to launch the Spring app (back end part) :
+
+`cd github-get-subfolder && mvn package && java -jar target/github-get-subfolder-0.0.1-SNAPSHOT.jar`
+
 There are 3 properties :
 
 - **owner** : The owner of the repository on GitHub
