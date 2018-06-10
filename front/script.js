@@ -18,8 +18,34 @@ downloadSubfolder = () => {
 	const output = generateURL();
 
 	if (output.success) {
+		generatedCurlCmd.textContent = "We are processing your request...";
+
 		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open("GET", output.link, false);
+		xmlHttp.open("GET", output.link, true);
+		xmlHttp.setRequestHeader("Content-type", "application/json");
+		xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+		xmlHttp.addEventListener(
+			"readystatechange",
+			() => {
+				if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+					var blob = new Blob([xmlHttp.response], {
+						type: "octet/stream"
+					});
+					let a = document.createElement("a");
+					a.style = "display: none";
+					document.body.appendChild(a);
+					let url = window.URL.createObjectURL(blob);
+					a.href = url;
+					a.download = output.name + ".zip";
+					a.click();
+					window.URL.revokeObjectURL(url);
+				}
+			},
+			false
+		);
+
+		xmlHttp.responseType = "arraybuffer";
 		xmlHttp.send(null);
 	} else {
 		generatedCurlCmd.textContent = output.result;
@@ -49,5 +75,5 @@ generateURL = () => {
 		result = "Any property is missing, check the owner or the repository";
 	}
 
-	return { success, result, link };
+	return { success, result, link, name: nameOutput };
 };
