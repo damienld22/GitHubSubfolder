@@ -16,25 +16,29 @@
     <div class="line first-line">
         <div class="input-section">
             <b>Owner :</b>
-            <input class="input" type="text">
+            <input class="input" type="text" id="inputOwner">
         </div>
 
         <div class="input-section">
             <b>Repository :</b>
-            <input class="input" type="text">
+            <input class="input" type="text" id="inputRepository">
         </div>
     </div>
 
     <div>
         <div class="input-section">
             <b>Path :</b>
-            <input class="input" type="text">
+            <input class="input" type="text" id="inputPath">
         </div>
     </div>
 
     <div class="line buttons">
-        <a class="button is-large">Download</a>
-        <a class="button is-large">Copy curl command</a>
+        <a class="button is-large" onclick="downloadSubfolder()">Download</a>
+        <a class="button is-large" onclick="generateCurlCommand()">Copy curl command</a>
+    </div>
+
+    <div>
+        <label id="generatedCurlCmd"></label>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
